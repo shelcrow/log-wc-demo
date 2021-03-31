@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i');
+
+html {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-size: 11px;
+    display: grid;
+    grid-template-rows: 30px auto 30px;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
+
+#sim-navbar {
+    grid-row: 1 / 2;
+    border-bottom: 1px solid #aaaaaa;
+    margin: 0px 10px 0px 10px;
+    display: grid;
+    grid-template-columns: 80px auto 80px;
+    background-color: #f8f8f8;
+}
+
+#sim-controls-container {
+    overflow-y: hidden;
+    grid-column: 1 / 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4px;
+}
+
+#sim-controls-container.on #sim-start-btn {
+    display: none;
+}
+
+#sim-controls-container.off #sim-stop-btn {
+    display: none;
+}
+
+#sim-settings-container {
+    padding-top: 5px;
+    overflow-y: hidden;
+    grid-column: 3 / 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sim-start-btn {
+    padding-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#sim-start-btn svg {
+    fill: rgb(74, 142, 88);
+    height: 33px;
+    width: 33px;
+}
+
+#sim-stop-btn {
+    padding-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#sim-stop-btn svg {
+    fill: rgb(198, 43, 50);
+    height: 33px;
+    width: 33px;
+}
+
+#sim-settings-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sim-settings-btn svg {
+    fill: rgb(49, 44, 44);
+    height: 23px;
+    width: 23px;
+}
+
+#sim-log-container {
+    padding: 10px 0px 0px 10px;
+    grid-row: 2 / 3;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scroll-snap-type: y mandatory;
+    height: calc(100% - 10px);
+}
+
+#sim-log-container > div:last-child {
+    scroll-snap-align: end;
+}
+
+#sim-status-container {
+    grid-row: 3 / 4;
+    margin: 0px 10px 0px 10px;
+    border-top: 1px solid #aaaaaa;
+}
+
+#status-container div {
+    font-size: 13px;
+}
+
+#sim-info {
+    height: 100%;
+    float: right;
+    display: flex;
+    align-items: center;
+}
+
+#sim-status {
+    height: 100%;
+    float: left;
+    display: flex;
+    align-items: center;
+}
+
+.log-entry {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 156px 5px minmax(0, 1fr);
+    grid-column-gap: 8px;
+    font-size: 12px;
+}
+
+.log-timestamp {
+    grid-column: 1 / 2;
+    color: #00218b;
+}
+
+.log-level {
+    grid-column: 2 / 3;
+}
+
+.log-msg {
+    margin-right: 5px;
+    grid-column: 3 / 4;
+    overflow-wrap: break-word;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+#der-sim-settings-param .label {
+    display: inline-block;
+    margin-right: 4px;
+    text-align: right;
+    width: 126px;
+    font-weight: 700;
+}
+
+#der-sim-settings-param input {
+    display: inline-block;
+    width: 300px;
+    padding: 1px 2px;
+}
+
+#der-sim-settings-dialog button {
+    padding: 1px 6px;
+}
+
+#sim-log-filter-container {
+    position: absolute;
+    right: 0;
+    margin: 0px 25px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 13px;
+}
+
+#sim-log-filter-container .log-filter-level {
+    display: inline-flex;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    background-color: white;
+}
+
+#log-filter-ctl-level-error {
+    border-left: 1px solid #cccccc;
+}
+
+#sim-log-filter-container .log-filter-level.selected-log-filter {
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #f0f0f0;
+}
+
+.level-error {
+    color: rgb(200, 0, 0);
+}
+
+.level-debug {
+    color: rgb(136, 18, 128);
+}
+
+.level-warning {
+    color: rgb(255, 96, 0);
+}
+
+.level-output {
+    color: #007000;
+}
+
+.level-input {
+    color: #000070;
+}
+
+#log-filter-ctl-level-error.selected-log-filter .log-filter-selector {
+    color: rgb(200, 0, 0);
+}
+
+#log-filter-ctl-level-debug.selected-log-filter .log-filter-selector {
+    color: rgb(136, 18, 128);
+}
+
+#log-filter-ctl-level-warning.selected-log-filter .log-filter-selector {
+    color: rgb(206, 102, 38);
+}
+
+#log-filter-ctl-level-output.selected-log-filter .log-filter-selector {
+    color: #007000;
+}
+
+#log-filter-ctl-level-input.selected-log-filter .log-filter-selector {
+    color: #000070;
+}
+
+#sim-help-msg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    transform: translateX(-50%);
+    font-size: 16px;
+}
